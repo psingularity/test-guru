@@ -1,7 +1,5 @@
 module TestGuru
-  VER = '1.0.0'.freeze
-
-  def self.version
-    VER
+  class Application
+    VERSION = '0.1.0'.freeze
   end
 end
