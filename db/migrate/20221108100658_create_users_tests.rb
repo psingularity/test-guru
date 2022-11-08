@@ -1,8 +1,8 @@
 class CreateUsersTests < ActiveRecord::Migration[6.1]
   def change
     create_table :users_tests do |t|
-      t.integer :user_id
-      t.integer :test_id
+      t.references :user_id, foreign_key: { to_table: :users }
+      t.references :test_id, foreign_key: { to_table: :tests }
 
       t.timestamps
     end
