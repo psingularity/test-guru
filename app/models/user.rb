@@ -13,5 +13,6 @@ class User < ApplicationRecord
         .where('tests.level = :level AND users_tests.user_id = :user_id',
                level: level, user_id: id)
   end
+  
 =end
 end
