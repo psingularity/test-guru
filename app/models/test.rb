@@ -1,5 +1,6 @@
 class Test < ApplicationRecord
 
+  INFINITE_LEVEL = Float::INFINITY
   has_many :questions
   belongs_to :category
 
@@ -7,6 +8,12 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users 
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+
+  scope :easy_level, -> { where(level: 0..1) }
+
+  scope :middle_level, -> { where(level: 2..4)}
+
+  scope :difficult_level, -> { where(level: 5..INFINITE_LEVEL) }
 
   scope :by_category, -> (category) {joins(:category).where(categories: { title: category }) } 
 
