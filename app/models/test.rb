@@ -2,6 +2,10 @@ class Test < ApplicationRecord
 
   INFINITE_LEVEL = Float::INFINITY
 
+  validates :title, presence: true, uniqueness: { scope: :level,
+                    message: "There can only be one test with the same title and level" }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   has_many :questions
   belongs_to :category
 

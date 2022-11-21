@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  validates :name, :email, presence: true
+
   has_many :tests_users
   has_many :tests, through: :tests_users
 
