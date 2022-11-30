@@ -1,5 +1,11 @@
 class Test < ApplicationRecord
 
+  INFINITE_LEVEL = Float::INFINITY
+
+  validates :title, presence: true, uniqueness: { scope: :level,
+                    message: "There can only be one test with the same title and level" }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   has_many :questions
   belongs_to :category
 
@@ -7,6 +13,12 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users 
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+
+  scope :easy, -> { by_level(0..1) }
+  scope :middle, -> { by_level(2..4)}
+  scope :difficult, -> { by_level(5..INFINITE_LEVEL) }
+
+  scope :by_level, -> (level) { where(level: level) }
 
   scope :by_category, -> (category) {joins(:category).where(categories: { title: category }) } 
 
