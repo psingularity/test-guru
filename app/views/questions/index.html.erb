@@ -1,0 +1,30 @@
+<h1>Список вопросов теста</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Вопрос</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |q| %>
+      <tr>
+        <td><%= @question_number += 1 %></td>
+        <td><%= q.body %></td>
+         <td><%= link_to "Подробнее", q %></td>
+         <td>           
+           <%= link_to "Удалить", q, :data => {:confirm => "Вы уверены?"}, :method => :delete %>
+         </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Создать новый вопрос", new_test_question_path %>
