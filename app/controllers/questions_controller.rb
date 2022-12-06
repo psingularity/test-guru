@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   
   before_action :find_question, only: [:show, :destroy]
-  before_action :find_test,  only: [:index]
+  before_action :find_test,  only: [:index, :create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -11,8 +11,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(question_params)
-    redirect_to question.test
+    #question = Question.create(question_params)
+    question = @test.questions.new(question_params)
+    if question.save
+      redirect_to question.test
+    else
+      render plain: 'Вопрос с невалидными данными.'
+    end    
   end
 
   def destroy
