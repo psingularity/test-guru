@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @question_number= 0
     @questions = @test.questions
   end
 
@@ -36,7 +35,7 @@ class QuestionsController < ApplicationController
   end
   
   def question_params
-    params.require(:question).permit(:body, :test_id, :id)
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found

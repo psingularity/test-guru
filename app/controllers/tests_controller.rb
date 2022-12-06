@@ -8,9 +8,13 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def create
-    test = Test.create(test_params)
-    redirect_to tests_path
+  def create 
+    test = Test.new(test_params)
+    if test.save
+      redirect_to tests_path
+    else
+      render plain: 'Тест с невалидными данными.'
+    end
   end
 
   def destroy    
@@ -32,5 +36,4 @@ class TestsController < ApplicationController
   def rescue_with_test_not_found
     render plain: 'Тест не найден'
   end
-
 end
