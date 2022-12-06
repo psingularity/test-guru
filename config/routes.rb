@@ -5,6 +5,4 @@ Rails.application.routes.draw do
     resources :questions, shallow: true
   end
 
-  get '/tests/:id/start', to: 'tests#start'
-
 end

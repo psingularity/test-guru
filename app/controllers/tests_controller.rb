@@ -8,10 +8,6 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def start
-    render plain: "Start"
-  end
-
   def create
     test = Test.create(test_params)
     redirect_to tests_path
