@@ -1,0 +1,29 @@
+<h1>Тесты</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Название теста</th>
+      <th>Уровень</th>
+      <th>Категория</th>
+      <th>Индикатор автора</th>
+      <th>Ссылка на тест</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each do |t| %>
+      <tr>
+        <td><%= t.title %></td>
+        <td><%= t.level %></td>
+        <td><%= t.category_id %></td>
+        <td><%= t.author_id %></td>
+        <td><%= link_to "Смотреть", t %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Создать новый тест", new_test_path %>

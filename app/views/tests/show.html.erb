@@ -1,0 +1,24 @@
+<h1>Тест <%= @test.title %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Уровень</th>
+      <th>Категория</th>
+      <th>Индикатор автора</th>
+      <th>Вопросы</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @test.level %></td>
+        <td><%= @test.category_id %></td>
+        <td><%= @test.author_id %></td>
+        <td><%= link_to "Смотреть", test_path + '/questions' %></td>
+        <td>
+        <%= link_to "Удалить", test_path(@test), :data => {:confirm => "Вы уверены?"}, :method => :delete %></td>
+      </tr>
+  </tbody>
+</table>
