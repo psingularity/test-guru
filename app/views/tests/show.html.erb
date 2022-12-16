@@ -1,24 +1,11 @@
 <h1>Тест <%= @test.title %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Уровень</th>
-      <th>Категория</th>
-      <th>Индикатор автора</th>
-      <th>Вопросы</th>
-      <th></th>
-    </tr>
-  </thead>
+<p>Уровень теста: <%= test_level(@test) %></p>
+<p>Категория теста: <%= test_category(@test)%></p>
+<p>Индикатор автора: <%= @test.author_id %></p>
+<p>Количество вопросов: <%= @test.questions.length %></p>
 
-  <tbody>
-      <tr>
-        <td><%= @test.level %></td>
-        <td><%= @test.category_id %></td>
-        <td><%= @test.author_id %></td>
-        <td><%= link_to "Смотреть", test_path + '/questions' %></td>
-        <td>
-        <%= link_to "Удалить", test_path(@test), :data => {:confirm => "Вы уверены?"}, :method => :delete %></td>
-      </tr>
-  </tbody>
-</table>
+<p>Вопросы: <%= render 'questions/list', test: @test %></p>
+
+<p><%= link_to "Редактировать", edit_test_path(@test) %>
+<%= link_to "Удалить", test_path(@test), :data => {:confirm => "Вы уверены?"}, :method => :delete %> <%= link_to 'Вернуться', tests_path %></p>
