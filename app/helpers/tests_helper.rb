@@ -10,4 +10,12 @@ module TestsHelper
   def test_category(test)
     TEST_CATEGORIES[test.category_id] || 'Mobile'
   end
+
+  def test_header(test)
+    if test.new_record?
+      "Создать новый тест"
+    else
+      "Редактировать #{test.title} тест"
+    end
+  end
 end
