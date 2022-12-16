@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      test: тест
+      question: вопрос
+      user: пользователь
+      answer: ответ
+    attributes:
+      question:
+        body: Поле для вопроса
+      test:
+        title: Название теста
+        level: Уровеь теста
+        category_id: Категория теста
+        author_id: Автор теста
+        author: Автор теста

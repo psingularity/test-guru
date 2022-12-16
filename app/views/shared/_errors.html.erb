@@ -1,6 +1,5 @@
 <% if resource.errors.present? %>
-  <div>
-    <h2><%= pluralize(resource.errors.count, 'error', locale: :ru) %> detected: </h2>
+  <div style="color: red">
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>

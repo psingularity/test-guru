@@ -24,5 +24,6 @@ module TestGuru
     config.i18n.enforce_available_locales = false
     config.i18n.available_locales = [:ru, :en]
     config.i18n.default_locale = :ru
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   end
 end
