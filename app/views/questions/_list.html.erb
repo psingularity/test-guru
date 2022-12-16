@@ -1,0 +1,11 @@
+<% if test.questions.present? %>
+  <table>
+    <%= render test.questions %>
+  </table>
+<% else %>
+  <p>There is no questions available.</p>
+<% end %>
+
+<p>
+  <%= link_to 'Создать новый вопрос', new_test_question_path(test) %>
+</p>

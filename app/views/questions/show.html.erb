@@ -4,3 +4,6 @@
   <li>Id: <%=@question.id %></li>
   <li>Test_id: <%=@question.test_id %></li>  
 </ul>
+
+<p><%= link_to 'Редактировать', edit_question_path(@question) %> </p>
+<p><%= link_to 'Вернуться', test_path(@question.test) %></p>
