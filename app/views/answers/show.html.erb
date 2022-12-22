@@ -1,0 +1,4 @@
+<h1><%= @answer.body %></h1>
+
+<%= link_to 'Редактировать', edit_answer_path(@answer) %> |
+<%= link_to 'Вернуться', question_path(@answer.question_id) %>
