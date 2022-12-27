@@ -1,0 +1,9 @@
+<h1>Тест <%= @test_passage.test.title %> был завершен</h1>
+
+<p><strong><%= test_result(@test_passage) %></strong></p>
+
+<p>
+	Процент правильных вопросов: <span class="<%= color(@test_passage) %>"><%= @test_passage.percent_of_complition %>%</span>
+</p>
+
+<p><%= link_to 'Вернуться к тестам', tests_path %></p>

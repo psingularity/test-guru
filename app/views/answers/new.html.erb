@@ -1,5 +1,7 @@
-<h1>New Answer</h1>
+<h1>Новый ответ.</h1>
 
 <%= render 'form', answer: @answer %>
 
-<%= link_to 'Back', answers_path %>
+<%= link_to 'Вернуться', question_path(@answer.question_id) %>
+
+
