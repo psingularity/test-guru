@@ -5,5 +5,11 @@
   <li>Test_id: <%=@question.test_id %></li>  
 </ul>
 
+<h2>Ответы:</h2>
+<%= link_to 'Добавить ответ', new_question_answer_path(@question) %>
+<ol>
+  <%= render @question.answers %>
+</ol>
+
 <p><%= link_to 'Редактировать', edit_question_path(@question) %> </p>
 <p><%= link_to 'Вернуться', test_path(@question.test) %></p>

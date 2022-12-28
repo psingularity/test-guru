@@ -1,0 +1,6 @@
+<li>
+	<%= answer.body %>
+	<%= link_to 'Показать', answer_path(answer) %> |
+	<%= link_to 'Редактировать', edit_answer_path(answer) %> |
+    <%= link_to "Удалить", answer, :data => {:confirm => "Вы уверены?"}, :method => :delete %>
+</li>

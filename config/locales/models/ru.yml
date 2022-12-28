@@ -14,3 +14,6 @@ ru:
         category_id: Категория теста
         author_id: Автор теста
         author: Автор теста
+      answer:
+        body: Описание ответа
+        correct: Ответ правильный?

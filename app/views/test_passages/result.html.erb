@@ -1,0 +1,13 @@
+<h1><%= t('test_passages.completed', title: @test_passage.test.title) %></h1>
+
+<p><strong><%= test_result(@test_passage) %></strong></p>
+
+<p>
+  <%= t('test_passages.percent_of_complition') %><%= content_tag(:span, number_to_percentage(@test_passage.percent_of_complition, precision: 0), class: color(@test_passage)).html_safe %>
+</p>
+
+
+ 
+<p><%= link_to t('test_passages.back_to_tests'), tests_path %></p>
+
+
