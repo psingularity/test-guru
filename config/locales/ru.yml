@@ -1,5 +1,17 @@
 ---
 ru:
+  test_passages:
+    success: 'Тест пройден.'
+    failure: 'Тест не пройден.'
+    completed: 'Тест %{title} был завершен.'
+    percent_of_complition: 'Процент правильных вопросов: '
+    back_to_tests: 'Вернуться к тестам'
+    completed_at: 'Завершено: %{date}'
+    questions:
+      one: '%{count} вопрос'
+      few: '%{count} вопроса'
+      many: '%{count} вопросов'
+      other: '%{count} вопроса'
   activerecord:
     errors:
       messages:
