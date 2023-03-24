@@ -1,5 +1,7 @@
-class TestsController < ApplicationController
+# frozen_string_literal: true
 
+class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_test, only: %i[show edit update destroy start]
   before_action :set_user, only: :start
 
@@ -13,7 +15,7 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
-  def create 
+  def create
     @test = Test.new(test_params)
     if @test.save
       redirect_to @test
@@ -22,7 +24,7 @@ class TestsController < ApplicationController
     end
   end
 
-  def destroy    
+  def destroy
     @test.destroy
     redirect_to tests_path
   end
@@ -57,5 +59,4 @@ class TestsController < ApplicationController
   def rescue_with_test_not_found
     render plain: 'Тест не найден'
   end
-  
 end

@@ -1,0 +1,10 @@
+<% unless current_page?('/start') %>
+  <%= link_to 'Test-Guru', start_path %>
+<% end %>  
+
+<% if logged_in? %>
+  <%= link_to "Выйти", logout_path, method: "delete" %>
+  <p class="nav user">Wellcome, <b><%= current_user.name %></b> Guru</p>
+ <% else %>
+  <p><%= link_to 'Войти', login_path %> | <%= link_to 'Регистрация', signup_path %></p>     
+<% end %>

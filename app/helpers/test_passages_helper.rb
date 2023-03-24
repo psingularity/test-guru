@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TestPassagesHelper
   def test_result(test_passage)
     t("test_passages.#{test_passage.success_test? ? 'success' : 'failure'}").html_safe

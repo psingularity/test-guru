@@ -1,0 +1,7 @@
+<h1>
+	<% if logged_in? %>     
+      <p><%= link_to "Wellcome, #{current_user.name} Guru", tests_path %></p>     
+    <% else %>
+      <p>Wellcome to TestGuru App</p>      
+    <% end %> 
+</h1>

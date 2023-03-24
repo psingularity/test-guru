@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
+
+require 'valid_email2'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,11 +22,10 @@ module TestGuru
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    
 
     config.time_zone = 'Moscow'
     config.i18n.enforce_available_locales = false
-    config.i18n.available_locales = [:ru, :en]
+    config.i18n.available_locales = %i[ru en]
     config.i18n.default_locale = :ru
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   end
