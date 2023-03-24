@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
@@ -13,9 +15,7 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
@@ -24,7 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def percent_of_complition
-    (correct_questions.to_f/test.questions.count*100).round 2
+    (correct_questions.to_f / test.questions.count * 100).round 2
   end
 
   def success_test?
@@ -36,7 +36,7 @@ class TestPassage < ApplicationRecord
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
   end
-  
+
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
 
@@ -49,11 +49,10 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first 
+    test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def before_validation_set_next_question
     self.current_question = next_question
   end
-
 end

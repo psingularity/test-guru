@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
-  
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[index new create]
 
@@ -19,7 +20,7 @@ class QuestionsController < ApplicationController
       redirect_to @question.test
     else
       render :new
-    end    
+    end
   end
 
   def destroy
@@ -44,7 +45,7 @@ class QuestionsController < ApplicationController
   def find_test
     @test = Test.find(params[:test_id])
   end
-  
+
   def question_params
     params.require(:question).permit(:body)
   end
@@ -52,5 +53,4 @@ class QuestionsController < ApplicationController
   def rescue_with_question_not_found
     render plain: 'Вопрос не найден'
   end
-
 end

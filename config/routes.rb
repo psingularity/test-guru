@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   get 'start/index'
   get 'notice/index'
 
@@ -8,8 +9,6 @@ Rails.application.routes.draw do
   # get 'sessions/new'
 
   # root 'notice#index'
-
-  
 
   get :start, to: 'start#index'
 
@@ -29,7 +28,6 @@ Rails.application.routes.draw do
     member do
       post :start
     end
-
   end
 
   resources :test_passages, only: %i[show update] do
@@ -37,5 +35,4 @@ Rails.application.routes.draw do
       get :result
     end
   end
-
 end
